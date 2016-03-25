@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  Ripple: 11b5450952bf067fc0113acad65a6c8321d8d235
+  Ripple: 5dba967bbe1505ae409b1a42517f19f81cfcbd3e
 
 COCOAPODS: 0.39.0.beta.4

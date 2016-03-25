@@ -9,7 +9,7 @@ public func ripple(center: CGPoint, view: UIView) {
 class Ripple: NSObject {
 
   let size = CGSizeMake(50, 50)
-  let multiplier: CGFloat = 3
+  let multiplier: CGFloat = 4
 
   var ripples: [UIView] = []
 
@@ -35,9 +35,9 @@ class Ripple: NSObject {
 
     let animationGroup = CAAnimationGroup()
     animationGroup.animations = [animation, boundsAnimation]
-    animationGroup.duration = 0.6
+    animationGroup.duration = 1.5
     animationGroup.delegate = self
-    animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.15, 0.47)
+    animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.2, 0.47)
 
     ripples.append(ripple)
     ripple.layer.addAnimation(animationGroup, forKey: "ripple")

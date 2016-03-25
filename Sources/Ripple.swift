@@ -48,7 +48,7 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
  - Returns: A ripple object, you can't do much with it though, it's just for internal use.
  */
 public func droplet(center: CGPoint, view: UIView,
-                    duration: NSTimeInterval = 1.5,
+                    duration: NSTimeInterval = 2,
                     size: CGFloat = 50, multiplier: CGFloat = 4,
                     color: UIColor = UIColor.whiteColor()) -> Ripple {
 

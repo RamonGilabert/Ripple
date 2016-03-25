@@ -26,18 +26,31 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
                                                      selector: #selector(Ripple.timerDidFire),
                                                      userInfo: nil, repeats: true)
 
-  guard times != Float.infinity else { return }
+  guard times != Float.infinity && times > 0 else { return }
 
   dispatch_after(
-  dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
+  dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times - 1) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
   dispatch_get_main_queue()) {
     timer.invalidate()
   }
 }
 
-public func droplet(center: CGPoint, view: UIView, duration: NSTimeInterval = 1.5,
-                   size: CGFloat = 50, multiplier: CGFloat = 4,
-                   color: UIColor = UIColor.whiteColor()) -> Ripple {
+/**
+ Droplet makes a just once ripple effect like when you drop a droplet in the water.
+
+ - Parameter center: The center point where the ripple should start.
+ - Parameter view: The view the ripple should be applied to.
+ - Parameter duration: (Optional) The duration of each ripple effect, 2 by default.
+ - Parameter size: (Optional) The initial size of the ripple, 50 by default.
+ - Parameter multiplier: (Optional) The multiplier that should apply to know the end size, 4 by default.
+ - Parameter color: (Optional) The color of the ripple, white by default.
+ 
+ - Returns: A ripple object, you can't do much with it though, it's just for internal use.
+ */
+public func droplet(center: CGPoint, view: UIView,
+                    duration: NSTimeInterval = 1.5,
+                    size: CGFloat = 50, multiplier: CGFloat = 4,
+                    color: UIColor = UIColor.whiteColor()) -> Ripple {
 
   let ripple = Ripple(center: center, view: view,
                       duration: duration,
@@ -50,6 +63,9 @@ public func droplet(center: CGPoint, view: UIView, duration: NSTimeInterval = 1.
   return ripple
 }
 
+/**
+ The ripple creator
+ */
 public class Ripple: NSObject {
 
   var center: CGPoint
@@ -106,6 +122,9 @@ public class Ripple: NSObject {
     ripple.layer.addAnimation(animationGroup, forKey: "ripple")
   }
 
+  /**
+   The animation delegate method that helps to do better ripples.
+   */
   override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
     guard let ripple = ripples.first else { return }
 

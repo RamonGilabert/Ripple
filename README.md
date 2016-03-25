@@ -16,6 +16,8 @@ Ripple is a small convenience to create ripples in your app. With just a line of
 
 There are two types of ripples, the one times ones, or the repeated ones:
 
+![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/example.png)
+
 #### Droplets
 
 By just setting the center and the view the droplet should be added to, you are going to have a droplet effect.
@@ -25,8 +27,6 @@ droplet(center: CGPoint, view: UIView)
 ```
 
 #### Ripples
-
-![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/example.png)
 
 There are many ways to customize the ripple effect, the simplest one of all is just calling the following lines, which will repeat infinite times.
 

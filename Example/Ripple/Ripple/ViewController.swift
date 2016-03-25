@@ -21,8 +21,8 @@ class ViewController: UIViewController {
 
   func handleTapGesture() {
     let location = tapGesture.locationInView(view)
-
-    ripple(location, view: view, multiplier: 5, times: 5)
+    
+    ripple(location, view: view, times: 5)
   }
 
   // MARK: - Helper methods

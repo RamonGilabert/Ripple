@@ -1,5 +1,17 @@
 import UIKit
 
+/**
+ Ripple makes a ripple effect like when you drop a droplet in the water.
+
+ - Parameter center: The center point where the ripple should start.
+ - Parameter view: The view the ripple should be applied to.
+ - Parameter times: (Optional) The number of times the ripple should repeat, Infinity by default.
+ - Parameter duration: (Optional) The duration of each ripple effect, 2 by default.
+ - Parameter size: (Optional) The initial size of the ripple, 50 by default.
+ - Parameter multiplier: (Optional) The multiplier that should apply to know the end size, 4 by default.
+ - Parameter divider: (Optional) The divider for the timer to apply the next ripple, 2 by default.
+ - Parameter color: (Optional) The color of the ripple, white by default.
+ */
 public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
                    duration: NSTimeInterval = 2,
                    size: CGFloat = 50,
@@ -66,10 +78,10 @@ public class Ripple: NSObject {
     view.addSubview(ripple)
 
     ripple.frame.origin = CGPoint(x: center.x - size.width / 2, y: center.y - size.height / 2)
-    ripple.frame.size = size
+    ripple.frame.size = CGSize(width: 10, height: 10)
     ripple.layer.borderColor = color.CGColor
     ripple.layer.borderWidth = 2.5
-    ripple.layer.cornerRadius = size.width / 2
+    ripple.layer.cornerRadius = ripple.bounds.width / 2
 
     let animation = CABasicAnimation(keyPath: "cornerRadius")
     animation.fromValue = ripple.layer.cornerRadius
@@ -80,7 +92,7 @@ public class Ripple: NSObject {
     boundsAnimation.toValue = NSValue(CGSize: CGSize(width: size.width * multiplier, height: size.height * multiplier))
 
     let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
-    opacityAnimation.values = [1, 1, 1, 0]
+    opacityAnimation.values = [0, 1, 1, 1, 1, 0]
 
     let animationGroup = CAAnimationGroup()
     animationGroup.animations = [animation, boundsAnimation, opacityAnimation]

@@ -34,6 +34,12 @@ ripple(center: CGPoint, view: UIView)
 
 There is, in both cases some configuration you can find, read the documentation for more information. :)
 
+![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/example.png)
+
+Here's the gif of the demo for you to have an idea of what Ripple is:
+
+![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/demo.gif)
+
 ## Installation
 
 **Ripple** is available through [CocoaPods](http://cocoapods.org). To install

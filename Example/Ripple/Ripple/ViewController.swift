@@ -20,7 +20,7 @@ class ViewController: UIViewController {
   // MARK: - Action methods
 
   func handleTapGesture() {
-    print("Hey")
+    ripple(tapGesture.locationInView(view), view: view)
   }
 
   // MARK: - Helper methods

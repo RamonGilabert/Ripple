@@ -1,4 +1,4 @@
-![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/logo.png)
+![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/cover.png)
 
 <div align = "center">
 <br>

@@ -99,9 +99,9 @@ public class Ripple: NSObject {
     ripple.layer.borderWidth = 2.5
     ripple.layer.cornerRadius = ripple.bounds.width / 2
 
-    let animation = CABasicAnimation(keyPath: "cornerRadius")
-    animation.fromValue = ripple.layer.cornerRadius
-    animation.toValue = size.width * multiplier / 2
+    let radiusAnimation = CABasicAnimation(keyPath: "cornerRadius")
+    radiusAnimation.fromValue = ripple.layer.cornerRadius
+    radiusAnimation.toValue = size.width * multiplier / 2
 
     let boundsAnimation = CABasicAnimation(keyPath: "bounds.size")
     boundsAnimation.fromValue = NSValue(CGSize: ripple.layer.bounds.size)
@@ -111,7 +111,7 @@ public class Ripple: NSObject {
     opacityAnimation.values = [0, 1, 1, 1, 1, 0]
 
     let animationGroup = CAAnimationGroup()
-    animationGroup.animations = [animation, boundsAnimation, opacityAnimation]
+    animationGroup.animations = [radiusAnimation, boundsAnimation, opacityAnimation]
     animationGroup.duration = duration
     animationGroup.delegate = self
     animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.2, 0.47)

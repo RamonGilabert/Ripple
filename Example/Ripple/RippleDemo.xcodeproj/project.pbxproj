@@ -43,12 +43,20 @@
 			isa = PBXGroup;
 			children = (
 				2925339B1CA5681E00D6C911 /* AppDelegate.swift */,
+				292533A01CA5681E00D6C911 /* ViewController.swift */,
+				292533A61CA5685100D6C911 /* Supporting files */,
+			);
+			path = Ripple;
+			sourceTree = "<group>";
+		};
+		292533A61CA5685100D6C911 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				2925339C1CA5681E00D6C911 /* Assets.xcassets */,
 				2925339D1CA5681E00D6C911 /* LaunchScreen.storyboard */,
 				2925339F1CA5681E00D6C911 /* Info.plist */,
-				292533A01CA5681E00D6C911 /* ViewController.swift */,
 			);
-			path = Ripple;
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 		75517F88E905227B36012311 /* Pods */ = {

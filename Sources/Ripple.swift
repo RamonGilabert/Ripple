@@ -93,7 +93,7 @@ public class Ripple: NSObject {
 
     view.addSubview(ripple)
 
-    ripple.frame.origin = CGPoint(x: center.x - size.width / 2, y: center.y - size.height / 2)
+    ripple.frame.origin = CGPoint(x: center.x, y: center.y)
     ripple.frame.size = CGSize(width: 10, height: 10)
     ripple.layer.borderColor = color.CGColor
     ripple.layer.borderWidth = 2.5

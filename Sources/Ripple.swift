@@ -9,7 +9,7 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
 
   let ripple = droplet(center, view: view, duration: duration,
                        size: size, multiplier: multiplier, color: color)
-  let timer = NSTimer.scheduledTimerWithTimeInterval(duration / 2,
+  let timer = NSTimer.scheduledTimerWithTimeInterval(duration / Double(divider),
                                                      target: ripple,
                                                      selector: #selector(Ripple.timerDidFire),
                                                      userInfo: nil, repeats: true)
@@ -17,7 +17,7 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
   guard times != Float.infinity else { return }
 
   dispatch_after(
-  dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times) * Double(duration) / 2 * Double(NSEC_PER_SEC))),
+  dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
   dispatch_get_main_queue()) {
     timer.invalidate()
   }

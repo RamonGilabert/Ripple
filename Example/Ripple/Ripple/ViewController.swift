@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     view.backgroundColor = UIColor(red:0.12, green:0.57, blue:0.96, alpha:1.00)
+    view.addGestureRecognizer(tapGesture)
   }
 
   // MARK: - Action methods

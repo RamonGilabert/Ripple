@@ -1,7 +1,6 @@
 ![Ripple](https://github.com/RamonGilabert/Ripple/blob/master/Resources/cover.png)
 
 <div align = "center">
-<br>
 <a href="https://github.com/Carthage/Carthage" target="blank"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" /></a>
 <a href="http://cocoadocs.org/docsets/Ripple" target="blank"><img src="https://img.shields.io/cocoapods/v/Ripple.svg?style=flat" /></a>
 <a href="http://cocoadocs.org/docsets/Ripple" target="blank"><img src="https://img.shields.io/cocoapods/l/Ripple.svg?style=flat" /></a>

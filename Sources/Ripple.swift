@@ -29,9 +29,9 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
   guard times != Float.infinity && times > 0 else { return }
 
   dispatch_after(
-  dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times - 1) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
-  dispatch_get_main_queue()) {
-    timer.invalidate()
+    dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times - 1) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
+    dispatch_get_main_queue()) {
+      timer.invalidate()
   }
 }
 
@@ -44,7 +44,7 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
  - Parameter size: (Optional) The initial size of the ripple, 50 by default.
  - Parameter multiplier: (Optional) The multiplier that should apply to know the end size, 4 by default.
  - Parameter color: (Optional) The color of the ripple, white by default.
- 
+
  - Returns: A ripple object, you can't do much with it though, it's just for internal use.
  */
 public func droplet(center: CGPoint, view: UIView,
@@ -93,15 +93,16 @@ public class Ripple: NSObject {
 
     view.addSubview(ripple)
 
-    ripple.frame.origin = CGPoint(x: center.x, y: center.y)
-    ripple.frame.size = CGSize(width: 10, height: 10)
+    ripple.frame.origin = CGPoint(x: center.x - size.width / 2,
+                                  y: center.y - size.height / 2)
+    ripple.frame.size = size
     ripple.layer.borderColor = color.CGColor
-    ripple.layer.borderWidth = 2.5
+    ripple.layer.borderWidth = 2
     ripple.layer.cornerRadius = ripple.bounds.width / 2
 
-    let radiusAnimation = CABasicAnimation(keyPath: "cornerRadius")
-    radiusAnimation.fromValue = ripple.layer.cornerRadius
-    radiusAnimation.toValue = size.width * multiplier / 2
+    let animation = CABasicAnimation(keyPath: "cornerRadius")
+    animation.fromValue = ripple.layer.cornerRadius
+    animation.toValue = size.width * multiplier / 2
 
     let boundsAnimation = CABasicAnimation(keyPath: "bounds.size")
     boundsAnimation.fromValue = NSValue(CGSize: ripple.layer.bounds.size)
@@ -111,7 +112,7 @@ public class Ripple: NSObject {
     opacityAnimation.values = [0, 1, 1, 1, 1, 0]
 
     let animationGroup = CAAnimationGroup()
-    animationGroup.animations = [radiusAnimation, boundsAnimation, opacityAnimation]
+    animationGroup.animations = [animation, boundsAnimation, opacityAnimation]
     animationGroup.duration = duration
     animationGroup.delegate = self
     animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.2, 0.47)
@@ -131,10 +132,10 @@ public class Ripple: NSObject {
     ripple.alpha = 0
     ripple.removeFromSuperview()
     ripple.layer.removeAnimationForKey("ripple")
-    
+
     ripples.removeFirst()
   }
-
+  
   func timerDidFire() {
     activate()
   }

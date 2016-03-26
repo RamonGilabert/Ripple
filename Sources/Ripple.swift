@@ -28,6 +28,8 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
                                                      selector: #selector(Ripple.timerDidFire),
                                                      userInfo: nil, repeats: true)
 
+  timers.append(timer)
+
   guard times != Float.infinity && times > 0 else { return }
 
   dispatch_after(
@@ -66,6 +68,16 @@ public func droplet(center: CGPoint, view: UIView,
 
   return ripple
 }
+
+/**
+ Calm stops all your current timers.
+ */
+public func calm() {
+  timers.forEach { $0.invalidate() }
+  timers.removeAll()
+}
+
+var timers: [NSTimer] = []
 
 /**
  The ripple creator

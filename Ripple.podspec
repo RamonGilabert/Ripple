@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "Ripple"
-  s.summary          = "Every act creates a ripple with no logical end."
-  s.version          = "2.0"
+  s.summary          = "Remember there's no such thing as a small act of kindness. Every act creates a ripple with no logical end."
+  s.version          = "2.1"
   s.homepage         = "https://github.com/RamonGilabert/Ripple"
   s.license          = 'MIT'
   s.author           = { "Ramon Gilabert" => "ramon.gilabert.llop@gmail.com" }

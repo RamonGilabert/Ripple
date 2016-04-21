@@ -109,7 +109,11 @@ public class Ripple: NSObject {
   func activate() {
     let ripple = UIView()
 
-    view.insertSubview(ripple, atIndex: 0)
+    if let subview = view.subviews.last {
+      view.insertSubview(ripple, aboveSubview: subview)
+    } else {
+      view.insertSubview(ripple, atIndex: 0)
+    }
 
     ripple.frame.origin = CGPoint(x: center.x - size.width / 2,
                                   y: center.y - size.height / 2)

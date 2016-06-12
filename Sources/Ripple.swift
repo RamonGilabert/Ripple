@@ -109,7 +109,7 @@ public class Ripple: NSObject {
   func activate() {
     let ripple = UIView()
 
-    if let subview = view.subviews.last {
+    if let subview = view.subviews.first {
       view.insertSubview(ripple, aboveSubview: subview)
     } else {
       view.insertSubview(ripple, atIndex: 0)

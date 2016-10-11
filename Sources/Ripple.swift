@@ -13,17 +13,17 @@ import UIKit
  - Parameter color: (Optional) The color of the ripple, white by default.
  - Parameter border: (Optional) The border width of the ripple, 2.25 by default.
  */
-public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
-                   duration: NSTimeInterval = 2,
+public func ripple(_ center: CGPoint, view: UIView, times: Float = Float.infinity,
+                   duration: TimeInterval = 2,
                    size: CGFloat = 50,
                    multiplier: CGFloat = 4,
                    divider: CGFloat = 2,
-                   color: UIColor = UIColor.whiteColor(),
+                   color: UIColor = UIColor.white,
                    border: CGFloat = 2.25) {
 
   let ripple = droplet(center, view: view, duration: duration,
                        size: size, multiplier: multiplier, color: color, border: border)
-  let timer = NSTimer.scheduledTimerWithTimeInterval(duration / Double(divider),
+  let timer = Timer.scheduledTimer(timeInterval: duration / Double(divider),
                                                      target: ripple,
                                                      selector: #selector(Ripple.timerDidFire),
                                                      userInfo: nil, repeats: true)
@@ -32,10 +32,10 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
 
   guard times != Float.infinity && times > 0 else { return }
 
-  dispatch_after(
-    dispatch_time(DISPATCH_TIME_NOW, Int64(Double(times - 1) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC))),
-    dispatch_get_main_queue()) {
-      timer.invalidate()
+  let denominator = Double(times - 1) * Double(duration) / Double(divider) * Double(NSEC_PER_SEC)
+  let deadline = DispatchTime.now() + denominator
+  DispatchQueue.main.asyncAfter(deadline: deadline) {
+    timer.invalidate()
   }
 }
 
@@ -52,10 +52,10 @@ public func ripple(center: CGPoint, view: UIView, times: Float = Float.infinity,
 
  - Returns: A ripple object, you can't do much with it though, it's just for internal use.
  */
-public func droplet(center: CGPoint, view: UIView,
-                    duration: NSTimeInterval = 2,
+public func droplet(_ center: CGPoint, view: UIView,
+                    duration: TimeInterval = 2,
                     size: CGFloat = 50, multiplier: CGFloat = 4,
-                    color: UIColor = UIColor.whiteColor(), border: CGFloat = 2.25) -> Ripple {
+                    color: UIColor = UIColor.white, border: CGFloat = 2.25) -> Ripple {
 
   let ripple = Ripple(center: center, view: view,
                       duration: duration,
@@ -77,16 +77,16 @@ public func calm() {
   timers.removeAll()
 }
 
-var timers: [NSTimer] = []
+var timers: [Timer] = []
 
 /**
  The ripple creator
  */
-public class Ripple: NSObject {
+open class Ripple: NSObject {
 
   var center: CGPoint
   var view: UIView
-  var duration: NSTimeInterval
+  var duration: TimeInterval
   var size: CGSize
   var multiplier: CGFloat
   var color: UIColor
@@ -94,7 +94,7 @@ public class Ripple: NSObject {
   var ripples: [UIView] = []
 
   init(center: CGPoint, view: UIView,
-       duration: NSTimeInterval, size: CGSize,
+       duration: TimeInterval, size: CGSize,
        multiplier: CGFloat, color: UIColor, border: CGFloat) {
 
     self.center = center
@@ -112,13 +112,13 @@ public class Ripple: NSObject {
     if let subview = view.subviews.first {
       view.insertSubview(ripple, aboveSubview: subview)
     } else {
-      view.insertSubview(ripple, atIndex: 0)
+      view.insertSubview(ripple, at: 0)
     }
 
     ripple.frame.origin = CGPoint(x: center.x - size.width / 2,
                                   y: center.y - size.height / 2)
     ripple.frame.size = size
-    ripple.layer.borderColor = color.CGColor
+    ripple.layer.borderColor = color.cgColor
     ripple.layer.borderWidth = border
     ripple.layer.cornerRadius = ripple.bounds.width / 2
 
@@ -127,8 +127,8 @@ public class Ripple: NSObject {
     animation.toValue = size.width * multiplier / 2
 
     let boundsAnimation = CABasicAnimation(keyPath: "bounds.size")
-    boundsAnimation.fromValue = NSValue(CGSize: ripple.layer.bounds.size)
-    boundsAnimation.toValue = NSValue(CGSize: CGSize(width: size.width * multiplier, height: size.height * multiplier))
+    boundsAnimation.fromValue = NSValue(cgSize: ripple.layer.bounds.size)
+    boundsAnimation.toValue = NSValue(cgSize: CGSize(width: size.width * multiplier, height: size.height * multiplier))
 
     let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
     opacityAnimation.values = [0, 1, 1, 1, 0]
@@ -138,27 +138,30 @@ public class Ripple: NSObject {
     animationGroup.duration = duration
     animationGroup.delegate = self
     animationGroup.timingFunction = CAMediaTimingFunction(controlPoints: 0.22, 0.54, 0.2, 0.47)
-    animationGroup.removedOnCompletion = false
+    animationGroup.isRemovedOnCompletion = false
     animationGroup.fillMode = kCAFillModeForwards
 
     ripples.append(ripple)
-    ripple.layer.addAnimation(animationGroup, forKey: "ripple")
-  }
-
-  /**
-   The animation delegate method that helps to do better ripples.
-   */
-  override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-    guard let ripple = ripples.first else { return }
-
-    ripple.alpha = 0
-    ripple.removeFromSuperview()
-    ripple.layer.removeAnimationForKey("ripple")
-
-    ripples.removeFirst()
+    ripple.layer.add(animationGroup, forKey: "ripple")
   }
   
   func timerDidFire() {
     activate()
+  }
+}
+
+extension Ripple: CAAnimationDelegate {
+
+  /**
+   The animation delegate method that helps to do better ripples.
+   */
+  open func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    guard let ripple = ripples.first else { return }
+
+    ripple.alpha = 0
+    ripple.removeFromSuperview()
+    ripple.layer.removeAnimation(forKey: "ripple")
+
+    ripples.removeFirst()
   }
 }

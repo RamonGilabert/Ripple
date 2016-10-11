@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070F46F3C3AE6CD551BB52C8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95915A97637700EA780F9630 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		292533A11CA5681E00D6C911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925339B1CA5681E00D6C911 /* AppDelegate.swift */; };
 		292533A21CA5681E00D6C911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2925339C1CA5681E00D6C911 /* Assets.xcassets */; };
 		292533A31CA5681E00D6C911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2925339D1CA5681E00D6C911 /* LaunchScreen.storyboard */; };
-		292533A41CA5681E00D6C911 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925339F1CA5681E00D6C911 /* Info.plist */; };
 		292533A51CA5681E00D6C911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292533A01CA5681E00D6C911 /* ViewController.swift */; };
+		A11F573AFCC71133DAE866A5 /* Pods_RippleDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0384135F538EFA62641959 /* Pods_RippleDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		285503F76B2B12E5D15FA430 /* Pods-RippleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RippleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RippleDemo/Pods-RippleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2925339B1CA5681E00D6C911 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2925339C1CA5681E00D6C911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2925339E1CA5681E00D6C911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2925339F1CA5681E00D6C911 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		292533A01CA5681E00D6C911 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		315C769D6F352B9B6CD4923A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2A0384135F538EFA62641959 /* Pods_RippleDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RippleDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95915A97637700EA780F9630 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE62182ACEA0755F74D4546B /* Pods-RippleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RippleDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RippleDemo/Pods-RippleDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D5C7F7401C3BC9CE008CDDBA /* RippleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RippleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE9689511B21F1FE05DC26B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				070F46F3C3AE6CD551BB52C8 /* Pods.framework in Frameworks */,
+				A11F573AFCC71133DAE866A5 /* Pods_RippleDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,22 +59,13 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
-		75517F88E905227B36012311 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FAE9689511B21F1FE05DC26B /* Pods.debug.xcconfig */,
-				315C769D6F352B9B6CD4923A /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D5C7F7371C3BC9CE008CDDBA = {
 			isa = PBXGroup;
 			children = (
 				2925339A1CA5681E00D6C911 /* Ripple */,
 				D5C7F7411C3BC9CE008CDDBA /* Products */,
-				75517F88E905227B36012311 /* Pods */,
 				D93DB8FF61C25956F41F7EC0 /* Frameworks */,
+				EEF6C30590301B64EE79941C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,8 +81,18 @@
 			isa = PBXGroup;
 			children = (
 				95915A97637700EA780F9630 /* Pods.framework */,
+				2A0384135F538EFA62641959 /* Pods_RippleDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEF6C30590301B64EE79941C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				285503F76B2B12E5D15FA430 /* Pods-RippleDemo.debug.xcconfig */,
+				BE62182ACEA0755F74D4546B /* Pods-RippleDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,12 +102,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5C7F7521C3BC9CE008CDDBA /* Build configuration list for PBXNativeTarget "RippleDemo" */;
 			buildPhases = (
-				3EC637030019D26AFC22ECF1 /* Check Pods Manifest.lock */,
+				570FC52FB58D696289A9C659 /* [CP] Check Pods Manifest.lock */,
 				D5C7F73C1C3BC9CE008CDDBA /* Sources */,
 				D5C7F73D1C3BC9CE008CDDBA /* Frameworks */,
 				D5C7F73E1C3BC9CE008CDDBA /* Resources */,
-				C7BC37127BEB64213348357C /* Embed Pods Frameworks */,
-				91730EB9BB8982AF27642EF6 /* Copy Pods Resources */,
+				9BFFBA338A10516A68CB152E /* [CP] Embed Pods Frameworks */,
+				3D05643E6A604B425CD4C9B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,11 +125,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Hyper Interaktiv AS";
 				TargetAttributes = {
 					D5C7F73F1C3BC9CE008CDDBA = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -157,56 +159,55 @@
 			files = (
 				292533A21CA5681E00D6C911 /* Assets.xcassets in Resources */,
 				292533A31CA5681E00D6C911 /* LaunchScreen.storyboard in Resources */,
-				292533A41CA5681E00D6C911 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EC637030019D26AFC22ECF1 /* Check Pods Manifest.lock */ = {
+		3D05643E6A604B425CD4C9B5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RippleDemo/Pods-RippleDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		91730EB9BB8982AF27642EF6 /* Copy Pods Resources */ = {
+		570FC52FB58D696289A9C659 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C7BC37127BEB64213348357C /* Embed Pods Frameworks */ = {
+		9BFFBA338A10516A68CB152E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RippleDemo/Pods-RippleDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -248,8 +249,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -292,8 +295,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -312,31 +317,36 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		D5C7F7531C3BC9CE008CDDBA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAE9689511B21F1FE05DC26B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 285503F76B2B12E5D15FA430 /* Pods-RippleDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ripple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RamonGilabert.RippleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D5C7F7541C3BC9CE008CDDBA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315C769D6F352B9B6CD4923A /* Pods.release.xcconfig */;
+			baseConfigurationReference = BE62182ACEA0755F74D4546B /* Pods-RippleDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ripple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RamonGilabert.RippleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

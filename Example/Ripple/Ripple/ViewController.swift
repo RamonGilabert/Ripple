@@ -20,14 +20,14 @@ class ViewController: UIViewController {
   // MARK: - Action methods
 
   func handleTapGesture() {
-    let location = tapGesture.locationInView(view)
+    let location = tapGesture.location(in: view)
     
     ripple(location, view: view, times: 5)
   }
 
   // MARK: - Helper methods
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  override var preferredStatusBarStyle : UIStatusBarStyle {
+    return .lightContent
   }
 }

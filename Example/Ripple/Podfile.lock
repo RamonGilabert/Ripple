@@ -1,14 +1,16 @@
 PODS:
-  - Ripple (0.1.0)
+  - Ripple (2.1)
 
 DEPENDENCIES:
   - Ripple (from `../../`)
 
 EXTERNAL SOURCES:
   Ripple:
-    :path: ../../
+    :path: "../../"
 
 SPEC CHECKSUMS:
-  Ripple: 5dba967bbe1505ae409b1a42517f19f81cfcbd3e
+  Ripple: fb35d2d638e9bcc03c291f14e80ae6ab1e3a3dea
 
-COCOAPODS: 0.39.0.beta.4
+PODFILE CHECKSUM: 89640b13351516546be4227dc228ac490ac358b0
+
+COCOAPODS: 1.1.0.rc.2

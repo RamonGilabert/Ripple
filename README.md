@@ -6,7 +6,7 @@
 <a href="http://cocoadocs.org/docsets/Ripple" target="blank"><img src="https://img.shields.io/cocoapods/l/Ripple.svg?style=flat" /></a>
 <a href="http://cocoadocs.org/docsets/Ripple" target="blank"><img src="https://img.shields.io/cocoapods/p/Ripple.svg?style=flat" /></a>
 <a href="http://cocoadocs.org/docsets/Ripple" target="blank"><img src="https://img.shields.io/cocoapods/metrics/doc-percent/Ripple.svg?style=flat" /></a>
-<img src="https://img.shields.io/badge/%20in-swift%202.2-orange.svg" />
+<img src="https://img.shields.io/badge/%20in-swift%203.0-orange.svg" />
 <br><br>
 </div>
 

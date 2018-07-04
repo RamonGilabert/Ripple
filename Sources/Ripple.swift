@@ -145,7 +145,7 @@ open class Ripple: NSObject {
     ripple.layer.add(animationGroup, forKey: "ripple")
   }
   
-  func timerDidFire() {
+  @objc func timerDidFire() {
     activate()
   }
 }
